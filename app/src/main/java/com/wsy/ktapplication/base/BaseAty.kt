@@ -7,9 +7,10 @@ import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.wsy.ktapplication.R
 
-abstract class BaseAty :AppCompatActivity(){
+abstract class BaseAty :RxAppCompatActivity(){
     private var preference: SharedPreferences? = null;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

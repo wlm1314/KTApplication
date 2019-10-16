@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : BaseAty(), NavigationView.OnNavigationItemSelectedListener {
+    private var homeFragment:HomeFragment?=null
 
     override fun getLayout(): Int {
         return R.layout.activity_main
@@ -31,9 +32,15 @@ class MainActivity : BaseAty(), NavigationView.OnNavigationItemSelectedListener 
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
         nav_view.setNavigationItemSelectedListener(this)
+
+        homeFragment = HomeFragment()
     }
 
     override fun initData() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.layout_frame, homeFragment!!)
+            .commit()
+
         fab.setOnClickListener {
             Snackbar.make(fab, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
